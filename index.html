@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" type="image/png" href="icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script>const themeSwitch = document.getElementById('themeSwitch');
+
+        themeSwitch.addEventListener('change', () => {
+          document.body.classList.toggle('dark-mode');
+          document.body.classList.toggle('light-mode');
+        });
+        
+        // Vérifiez le thème préféré par l'utilisateur
+        if (localStorage.getItem('theme') === 'dark') {
+          document.body.classList.add('dark-mode');
+          themeSwitch.checked = true;
+        } else {
+          document.body.classList.add('light-mode');
+        }
+        
+        // Sauvegardez le thème préféré de l'utilisateur
+        themeSwitch.addEventListener('change', () => {
+          if (themeSwitch.checked) {
+            document.body.classList.replace('light-mode', 'dark-mode');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.body.classList.replace('dark-mode', 'light-mode');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+        </script>
+</head>
+<body>
+    <header>
+        <h1>Ma Boutique de Chaussures</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.php">Produits</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="panier.html">panier</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Nos Chaussures</h2>
+            <p>Découvrez notre sélection de chaussures de qualité.</p>
+            <a href="produits.php" class="btn">Voir les produits</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Ma Boutique de Chaussures</p>
+    </footer>
+    <label class="switch">
+        <input type="checkbox" id="themeSwitch">
+        <span class="slider round"></span>
+      </label>      
+</body>
+</html>
